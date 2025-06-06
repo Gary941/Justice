@@ -1,51 +1,24 @@
 import streamlit as st
 
-# Set page configuration
-st.set_page_config(
-    page_title="Justice - Litigation AI Agent",
-    page_icon="⚖️",
-    layout="centered",
-)
+# Page configuration
+st.set_page_config(page_title="Justice - Legal Case Manager", page_icon="⚖️", layout="centered")
 
-# Title Section
-st.title("⚖️ Meet Justice")
-st.subheader("Your Litigation AI Agent")
+# Title and subtitle
+st.title("⚖️ Justice")
+st.subheader("Your AI Legal Case Manager")
 
-# Main Description
+# Agent description
 st.markdown("""
-### What Justice Does:
+**Justice** handles legal cases from submission to settlement —  
+she follows up, keeps everyone on track, and makes sure **you get paid**.
 
-**Justice** is your relentless AI agent built to manage litigation cases from **start to settlement**.
-
----
-
-**✅ Submission to Settlement:**
-- Submits new cases and logs all progress
-- Tracks weekly and monthly follow-ups
-
-**📬 Attorney Communication:**
-- Follows up via email to confirm case status
-- Tracks demand letters, filings, and settlements
-
-**📲 Client Communication:**
-- Uses text, email, and voice for updates
-- Gets missing documents and signatures fast
-
-**🚨 Issue Resolution:**
-- Flags delays or problems instantly
-- Notifies Gary and takes steps to resolve them
-
-**💰 Payment Tracking:**
-- Confirms signed settlements
-- Follows up until your payment is received
-
----
-
-### Why Justice?
-Because your time is too valuable to babysit lawsuits. Justice stays on it — so you don’t have to.
-
+With Justice, you can focus on practicing law,  
+while she manages the process end-to-end.
 """)
 
-# Footer
+# Optional: Add an image or animation (if you have one)
+# st.image("justice_avatar.png", width=300)
+
+# Footer or call-to-action
 st.markdown("---")
-st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
+st.markdown("💼 Ready to streamline your case workflow with Justice? Let’s get started."
