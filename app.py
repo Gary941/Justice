@@ -57,14 +57,14 @@ with st.form("case_submission_form"):
     client_name = st.text_input("Client Name")
     client_email = st.text_input("Client Email")
     phone_number = st.text_input("Phone Number")
+    date_of_birth = st.date_input("Date of Birth")
 
-   st.markdown("### Case Details")
-case_type = st.selectbox("Case Type", ["FCRA", "FDCPA"])
-company_name = st.text_input("Company Involved (Credit Bureau or Debt Collector Name)")
-attorney_name = st.text_input("Attorney Name")
-attorney_email = st.text_input("Attorney Email")
-case_description = st.text_area("Case Description")
-
+    st.markdown("### Case Details")
+    case_type = st.selectbox("Case Type", ["FCRA", "FDCPA"])
+    company_name = st.text_input("Company Involved (Credit Bureau or Debt Collector Name)")
+    attorney_name = st.text_input("Attorney Name")
+    attorney_email = st.text_input("Attorney Email")
+    case_description = st.text_area("Case Description")
 
     st.markdown("### Consent")
     consent = st.checkbox("I confirm that the client has consented to this submission.")
@@ -76,8 +76,7 @@ case_description = st.text_area("Case Description")
             st.success(f"✅ Case for {client_name} has been submitted successfully!")
         else:
             st.error("❌ Please confirm that the client has consented to this submission.")
-# Footer
-st.markdown("---")
+
 
 st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
 
