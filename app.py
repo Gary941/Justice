@@ -65,7 +65,6 @@ with st.form("case_submission_form"):
     client_name = st.text_input("Client Name")
     client_email = st.text_input("Client Email")
     phone_number = st.text_input("Phone Number")
-    date_of_birth = st.date_input("Date of Birth")
 
     st.markdown("### Case Details")
     case_type = st.selectbox("Case Type", ["FCRA", "FDCPA"])
