@@ -84,7 +84,7 @@ if submitted:
         receiver_email = "gbranch941@gmail.com"
         app_password = "kywbzllohgzflofj"
 
-             subject = f"New Potential {case_type} Case – {client_name}"
+        subject = f"New Potential {case_type} Case – {client_name}"
 
         body = f"""
         Hello {attorney_name},
@@ -97,6 +97,7 @@ if submitted:
         Case File 👇🏾👇🏾👇🏾
         https://drive.google.com/drive/folders/1lpji6a8G37sk7s1wR9ALLpTgs0YNr59v
         """
+
 
 
 
