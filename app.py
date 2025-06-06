@@ -80,7 +80,7 @@ if submitted:
         from email.mime.multipart import MIMEMultipart
         from datetime import datetime
 
-        sender_email = "gbranch941@gmail.com"
+        sender_email = "debtdestroyer941@gmail.com"
         receiver_email = "gbranch941@gmail.com"
         app_password = "kywbzllohgzflofj"
 
