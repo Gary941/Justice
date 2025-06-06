@@ -70,10 +70,52 @@ with st.form("case_submission_form"):
     consent = st.checkbox("I confirm that the client has consented to this submission.")
 
     submitted = st.form_submit_button("Submit Case")
+if submitted:
+    if consent:
+        st.success(f"✅ Case for {client_name} has been submitted successfully!")
 
-    if submitted:
-        if consent:
-            st.success(f"✅ Case for {client_name} has been submitted successfully!")
+        # ---- EMAIL SETUP ----
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+        from datetime import datetime
+
+        sender_email = "gbranch941@gmail.com"
+        receiver_email = "gbranch941@gmail.com"
+        app_password = "kywb zllo hgzf lofj"
+
+        subject = f"New Legal Case: {client_name} - {case_type}"
+        body = f"""
+        A new case has been submitted.
+
+        Client: {client_name}
+        Email: {client_email}
+        Phone: {phone_number}
+        DOB: {date_of_birth.strftime('%Y-%m-%d')}
+        Case Type: {case_type}
+        Company: {company_name}
+        Attorney: {attorney_name} | {attorney_email}
+        Description: {case_description}
+
+        Submitted: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+        """
+
+        msg = MIMEMultipart()
+        msg["From"] = sender_email
+        msg["To"] = receiver_email
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain"))
+
+        try:
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                server.login(sender_email, app_password)
+                server.sendmail(sender_email, receiver_email, msg.as_string())
+            st.success("📧 Email sent successfully!")
+        except Exception as e:
+            st.error(f"❌ Email failed: {e}")
+    else:
+        st.error("❌ Please confirm that the client has consented to this submission.")
+
         else:
             st.error("❌ Please confirm that the client has consented to this submission.")
 
