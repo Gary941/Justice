@@ -1,52 +1,51 @@
 import streamlit as st
 
-# Set page config
+# Set page configuration
 st.set_page_config(
-    page_title="Justice - AI Legal Case Manager",
+    page_title="Justice - Litigation AI Agent",
     page_icon="⚖️",
-    layout="centered"
+    layout="centered",
 )
 
-# App title and subtitle
-st.title("⚖️ Justice")
-st.subheader("Your AI Legal Case Manager")
+# Title Section
+st.title("⚖️ Meet Justice")
+st.subheader("Your Litigation AI Agent")
 
-# Description block
+# Main Description
 st.markdown("""
-**Justice** is your AI-powered legal case manager.  
-She handles legal cases from **submission to settlement** —  
-follows up, keeps everyone on track, and makes sure **you get paid**.
+### What Justice Does:
 
-Focus on practicing law. Justice manages the rest.
+**Justice** is your relentless AI agent built to manage litigation cases from **start to settlement**.
+
+---
+
+**✅ Submission to Settlement:**
+- Submits new cases and logs all progress
+- Tracks weekly and monthly follow-ups
+
+**📬 Attorney Communication:**
+- Follows up via email to confirm case status
+- Tracks demand letters, filings, and settlements
+
+**📲 Client Communication:**
+- Uses text, email, and voice for updates
+- Gets missing documents and signatures fast
+
+**🚨 Issue Resolution:**
+- Flags delays or problems instantly
+- Notifies Gary and takes steps to resolve them
+
+**💰 Payment Tracking:**
+- Confirms signed settlements
+- Follows up until your payment is received
+
+---
+
+### Why Justice?
+Because your time is too valuable to babysit lawsuits. Justice stays on it — so you don’t have to.
+
 """)
-
-st.divider()
-
-# Case submission simulation form
-st.markdown("### 📝 Submit a New Case")
-
-with st.form("case_form"):
-    client_name = st.text_input("Client Name")
-    case_type = st.selectbox("Case Type", ["Contract Dispute", "Personal Injury", "Employment", "IP", "Other"])
-    case_summary = st.text_area("Case Summary")
-    opposing_party = st.text_input("Opposing Party (if known)")
-    urgency = st.radio("Urgency Level", ["Low", "Medium", "High"])
-
-    submitted = st.form_submit_button("Submit Case")
-
-    if submitted:
-        st.success(f"✅ Case for **{client_name}** submitted successfully!")
-        st.info(f"Justice will begin tracking this **{case_type}** case and keep all parties aligned.")
-        st.write("🔍 Summary:", case_summary)
-        if opposing_party:
-            st.write("⚖️ Opposing Party:", opposing_party)
-        st.write("🚦 Urgency Level:", urgency)
-
-st.divider()
 
 # Footer
-st.markdown("""
-Made with ❤️ by your AI assistant.  
-_Justice is always on the case._
-""")
-
+st.markdown("---")
+st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
