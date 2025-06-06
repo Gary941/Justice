@@ -1,17 +1,22 @@
 import streamlit as st
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from datetime import datetime
 
-# Set page configuration
+# Page settings
 st.set_page_config(
     page_title="Justice - Litigation AI Agent",
     page_icon="⚖️",
     layout="centered",
 )
 
-# Title Section
+# -------------------------
+# SECTION 1: AGENT OVERVIEW
+# -------------------------
 st.title("⚖️ Meet Justice")
 st.subheader("Your Litigation AI Agent")
 
-# Main Description
 st.markdown("""
 ### What Justice Does:
 
@@ -43,12 +48,11 @@ st.markdown("""
 
 ### Why Justice?
 Because your time is too valuable to babysit lawsuits. Justice stays on it — so you don’t have to.
-
 """)
 
-# --------------------------------
-# Add New Case Intake Form
-# --------------------------------
+# -------------------------
+# SECTION 2: CASE SUBMISSION FORM
+# -------------------------
 st.markdown("---")
 st.subheader("📂 Submit a New Legal Case")
 
@@ -70,58 +74,45 @@ with st.form("case_submission_form"):
     consent = st.checkbox("I confirm that the client has consented to this submission.")
 
     submitted = st.form_submit_button("Submit Case")
-if submitted:
-    if consent:
-        st.success(f"✅ Case for {client_name} has been submitted successfully!")
 
-        # ---- EMAIL SETUP ----
-        import smtplib
-        from email.mime.text import MIMEText
-        from email.mime.multipart import MIMEMultipart
-        from datetime import datetime
+    if submitted:
+        if consent:
+            st.success(f"✅ Case for {client_name} has been submitted successfully!")
 
-        sender_email = "debtdestroyer941@gmail.com"
-        receiver_email = "gbranch941@gmail.com"
-        app_password = "kywbzllohgzflofj"
+            # ---- EMAIL SETUP ----
+            sender_email = "gbranch941@gmail.com"
+            receiver_email = attorney_email  # You can change to your own email to test
+            app_password = "kywbzllohgzflof"  # Replace with your real Gmail app password
 
-        subject = f"New Potential {case_type} Case – {client_name}"
+            subject = f"New Potential {case_type} Case – {client_name}"
 
-        body = f"""Hello {attorney_name},
+            body = (
+                f"Hello {attorney_name},\n\n"
+                f"We've submitted a potential {case_type} case for your review.\n\n"
+                f"Client Name: {client_name}\n"
+                f"Case Notes: {case_description}\n\n"
+                f"Case File 👇🏾👇🏾👇🏾\n"
+                f"https://drive.google.com/drive/folders/1lpji6a8G37sk7s1wR9ALLpTgs0YNr59v"
+            )
 
-We've submitted a potential {case_type} case for your review.
+            msg = MIMEMultipart()
+            msg["From"] = sender_email
+            msg["To"] = receiver_email
+            msg["Subject"] = subject
+            msg.attach(MIMEText(body, "plain"))
 
-Client Name: {client_name}
-Case Notes: {case_description}
+            try:
+                with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                    server.login(sender_email, app_password)
+                    server.sendmail(sender_email, receiver_email, msg.as_string())
+                st.success("📧 Email sent to attorney successfully!")
+            except Exception as e:
+                st.error(f"❌ Email failed: {e}")
+        else:
+            st.error("❌ Please confirm that the client has consented to this submission.")
 
-Case File 👇🏾👇🏾👇🏾
-https://drive.google.com/drive/folders/1lpji6a8G37sk7s1wR9ALLpTgs0YNr59v
-"""
-
-
-
-
-
-
-        Submitted: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-        """
-
-        msg = MIMEMultipart()
-        msg["From"] = sender_email
-        msg["To"] = receiver_email
-        msg["Subject"] = subject
-        msg.attach(MIMEText(body, "plain"))
-
-        try:
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-                server.login(sender_email, app_password)
-                server.sendmail(sender_email, receiver_email, msg.as_string())
-            st.success("📧 Email sent successfully!")
-        except Exception as e:
-            st.error(f"❌ Email failed: {e}")
-    else:
-        st.error("❌ Please confirm that the client has consented to this submission.")
-
-
-
+# -------------------------
+# FOOTER
+# -------------------------
+st.markdown("---")
 st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
-
