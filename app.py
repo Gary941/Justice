@@ -84,12 +84,12 @@ if submitted:
         receiver_email = "gbranch941@gmail.com"
         app_password = "kywbzllohgzflofj"
 
-        subject= f"New Potential {case_type} Case – {client_name}"
-        body = f"""
-        body = f"""
+      subject = f"New Potential {case_type} Case – {client_name}"
+
+body = f"""
 Hello {attorney_name},
 
-We’ve submitted a potential {case_type} case for your review.
+We've submitted a potential {case_type} case for your review.
 
 Client Name: {client_name}
 Case Notes: {case_description}
@@ -97,6 +97,7 @@ Case Notes: {case_description}
 Case File 👇🏾👇🏾👇🏾
 https://drive.google.com/drive/folders/1lpji6a8G37sk7s1wR9ALLpTgs0YNr59v
 """
+
 
 
         Submitted: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
