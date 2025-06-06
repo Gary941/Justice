@@ -82,7 +82,7 @@ if submitted:
 
         sender_email = "gbranch941@gmail.com"
         receiver_email = "gbranch941@gmail.com"
-        app_password = "kywb zllo hgzf lofj"
+        app_password = "kywbzllohgzflofj"
 
         subject = f"New Legal Case: {client_name} - {case_type}"
         body = f"""
