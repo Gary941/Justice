@@ -46,10 +46,6 @@ Because your time is too valuable to babysit lawsuits. Justice stays on it — s
 
 """)
 
-# Footer
-st.markdown("---")
-# Add a horizontal rule
-st.markdown("---")
 
 
 
@@ -82,4 +78,8 @@ with st.form("case_submission_form"):
             st.success(f"✅ Case for {client_name} has been submitted successfully!")
         else:
             st.error("❌ Please confirm that the client has consented to this submission.")
+# Footer
+st.markdown("---")
+# Add a horizontal rule
+st.markdown("---")
 
