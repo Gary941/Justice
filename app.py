@@ -46,10 +46,6 @@ Because your time is too valuable to babysit lawsuits. Justice stays on it — s
 
 """)
 
-
-
-
-st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
 # --------------------------------
 # Add New Case Intake Form
 # --------------------------------
@@ -80,6 +76,6 @@ with st.form("case_submission_form"):
             st.error("❌ Please confirm that the client has consented to this submission.")
 # Footer
 st.markdown("---")
-# Add a horizontal rule
-st.markdown("---")
+
+st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
 
