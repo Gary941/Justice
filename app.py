@@ -48,4 +48,22 @@ Because your time is too valuable to babysit lawsuits. Justice stays on it — s
 
 # Footer
 st.markdown("---")
+# Add a horizontal rule
+st.markdown("---")
+
+# New Case Intake Form
+st.subheader("📂 Submit a New Legal Case")
+
+with st.form("submit_case"):
+    client_name = st.text_input("Client Name")
+    case_type = st.selectbox("Case Type", ["Credit Bureau", "Debt Collector", "Mixed/Other"])
+    attorney_email = st.text_input("Attorney Email")
+    case_details = st.text_area("Case Details or Notes")
+
+    submitted = st.form_submit_button("Submit Case")
+
+    if submitted:
+        st.success(f"✅ Case for **{client_name}** submitted!")
+        # (Optional) This is where you'd add automation to save or send the data
+
 st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
