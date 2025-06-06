@@ -51,19 +51,36 @@ st.markdown("---")
 # Add a horizontal rule
 st.markdown("---")
 
-# New Case Intake Form
+
+
+st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
+# --------------------------------
+# Add New Case Intake Form
+# --------------------------------
+st.markdown("---")
 st.subheader("📂 Submit a New Legal Case")
 
-with st.form("submit_case"):
+with st.form("case_submission_form"):
+    st.markdown("### Client Info")
     client_name = st.text_input("Client Name")
-    case_type = st.selectbox("Case Type", ["Credit Bureau", "Debt Collector", "Mixed/Other"])
+    client_email = st.text_input("Client Email")
+    phone_number = st.text_input("Phone Number")
+    date_of_birth = st.date_input("Date of Birth")
+
+    st.markdown("### Case Details")
+    case_type = st.selectbox("Case Type", ["FCRA", "FDCPA"])
+    attorney_name = st.text_input("Attorney Name")
     attorney_email = st.text_input("Attorney Email")
-    case_details = st.text_area("Case Details or Notes")
+    case_description = st.text_area("Case Description")
+
+    st.markdown("### Consent")
+    consent = st.checkbox("I confirm that the client has consented to this submission.")
 
     submitted = st.form_submit_button("Submit Case")
 
     if submitted:
-        st.success(f"✅ Case for **{client_name}** submitted!")
-        # (Optional) This is where you'd add automation to save or send the data
+        if consent:
+            st.success(f"✅ Case for {client_name} has been submitted successfully!")
+        else:
+            st.error("❌ Please confirm that the client has consented to this submission.")
 
-st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
