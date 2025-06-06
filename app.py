@@ -116,8 +116,6 @@ if submitted:
     else:
         st.error("❌ Please confirm that the client has consented to this submission.")
 
-        else:
-            st.error("❌ Please confirm that the client has consented to this submission.")
 
 
 st.caption("Built for New Generational Wealth Solutions | Powered by AI automation.")
