@@ -84,18 +84,20 @@ if submitted:
         receiver_email = "gbranch941@gmail.com"
         app_password = "kywbzllohgzflofj"
 
-        subject = f"New Legal Case: {client_name} - {case_type}"
+        subject= f"New Potential {case_type} Case – {client_name}"
         body = f"""
-        A new case has been submitted.
+        body = f"""
+Hello {attorney_name},
 
-        Client: {client_name}
-        Email: {client_email}
-        Phone: {phone_number}
-        DOB: {date_of_birth.strftime('%Y-%m-%d')}
-        Case Type: {case_type}
-        Company: {company_name}
-        Attorney: {attorney_name} | {attorney_email}
-        Description: {case_description}
+We’ve submitted a potential {case_type} case for your review.
+
+Client Name: {client_name}
+Case Notes: {case_description}
+
+Case File 👇🏾👇🏾👇🏾
+https://drive.google.com/drive/folders/1lpji6a8G37sk7s1wR9ALLpTgs0YNr59v
+"""
+
 
         Submitted: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         """
